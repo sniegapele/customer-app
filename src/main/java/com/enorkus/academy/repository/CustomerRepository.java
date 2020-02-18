@@ -6,23 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CustomerRepository {
+public interface CustomerRepository {
+    List<Customer> findAll();
 
-    private static final List<Customer> customers = new ArrayList<>();
+    void insert(Customer customer);
 
-    public List<Customer> findAll() {
-        return customers;
-    }
-
-    public void insert(Customer customer) {
-        customer.setId(customer.toString());
-        customers.add(customer);
-    }
-
-    public void deleteById(String customerId) {
-        Optional<Customer> customerToDelete = customers.stream()
-                .filter(customer -> customer.getId().equals(customerId))
-                .findFirst();
-        customerToDelete.ifPresent(customers::remove);
-    }
+    void deleteById(String customerId);
 }
