@@ -32,10 +32,7 @@ public class MandatoryValueValidator extends Validator<Customer> {
     }
 
     private boolean isStringEmpty(String string) {
-        if (string.trim().length() == 0) {
-            return true;
-        }
-        return false;
+        return string.trim().length() == 0;
     }
 
     private boolean doesStringContainLetters(String word) {

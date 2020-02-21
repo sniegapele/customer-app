@@ -7,15 +7,12 @@ public class CustomerValidator {
     private CustomerAdultValidator customerAdultValidator;
     private CountryCodeValidator countryCodeValidator;
 
-    public CustomerValidator() {
-        mandatoryValueValidator = new MandatoryValueValidator();
-        customerAdultValidator = new CustomerAdultValidator();
-        countryCodeValidator = new CountryCodeValidator();
-    }
-
     public void validateCustomer(Customer customer) {
+        mandatoryValueValidator = new MandatoryValueValidator();
         mandatoryValueValidator.validate(customer, "Mandatory value is missing!");
-        customerAdultValidator.validate(customer, "Customer must be 18 or older!");
-        countryCodeValidator.validate(customer, "Invalid country code!");
+        customerAdultValidator = new CustomerAdultValidator();
+        customerAdultValidator.validate(customer.getAge(), "Customer must be 18 or older!");
+        countryCodeValidator = new CountryCodeValidator();
+        countryCodeValidator.validate(customer.getCountryCode(), "Invalid country code!");
     }
 }

@@ -1,7 +1,6 @@
 package com.enorkus.academy.service;
 
 import com.enorkus.academy.entity.Customer;
-import com.enorkus.academy.exception.MandatoryValueMissingException;
 import com.enorkus.academy.repository.CustomerRepository;
 import com.enorkus.academy.repository.MemoryCustomerRepository;
 import com.enorkus.academy.validator.CustomerValidator;

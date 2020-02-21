@@ -8,10 +8,7 @@ import java.util.Optional;
 
 public class MemoryCustomerRepository implements CustomerRepository {
     private static final List<Customer> customers = new ArrayList<>();
-
-    public MemoryCustomerRepository() {
-    }
-
+    
     @Override
     public List<Customer> findAll() {
         return customers;
